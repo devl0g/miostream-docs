@@ -14,6 +14,10 @@
 
 # TypeScript
 1. Віддаємо перевагу interface замість type у більшості випадків.
+1. Імпорти повинні уникати розширення (`.ts`, `.js` і тд). Приклад:
+    `import { helloWorld } from "./helloWorld.ts"; -> import { helloWorld } from "./helloWorld";`.
+1. Імпорти повинні використовувати подвійні лапки для шляхів. Приклад:
+    `import { helloWorld } from './helloWorld'; -> import { helloWorld } from "./helloWorld";`.
 
 # Fastify
 1. У контролерах ми використовуємо саме назви `request`, `reply`, `fastify`, `done`.
@@ -27,6 +31,12 @@
 1. Ми використовуємо optional generics в FastifyRequest та FastifyReply, щоб вказати що приймає, а що видає запит.
     Якщо запит нічого не приймає залишаємо `FastifyRequest<{}>`.
 1. Віддаємо перевагу асинхронним функціям ніж використання параметра `done`.
+1. Сутності згадані в шляхах ендпойнтів мають бути в однині (`/user/`, `/anime/`).
+1. Tags у схемах мають бути в однині з малої літери (`tags: [ "anime" ]`).
+1. Повідомлення помилок повинні бути загальними, а текст не повинен містити динамічних данних. Приклад:
+    `SELECT query couldn't receive user's information -> database read error`.
+1. Повідомлення помилок повинні згадувати домен помилки, як от S3, Database, Validation і тд.
+1. Віддавати перевагу нижньому регістру у повідомленні помилок.
 
 # Astro
 
@@ -41,6 +51,6 @@
     у форматі `<назва_однина>.<патерн_однина|errors>.ts`. До прикладу:
     `avatarS3Bucket.repo.ts`, `roomRedis.repo.ts`.
 1. Кожен модуль повинен містити `<модуль_однина>.plugin.ts`.
-1. Використовуваними патернами є `repo`, `service`, `plugin`, `schema` (також і для DTOs), `controller`, `errors` (єдиний у множині).
+1. Використовуваними патернами є `repo`, `service`, `plugin`, `schema`, `dto` , `controller`, `errors` (єдиний у множині).
 
 # Frontend
