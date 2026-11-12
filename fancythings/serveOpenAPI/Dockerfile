@@ -1,4 +1,5 @@
 FROM alpine:latest
+USER root
 RUN apk add --no-cache bash docker-cli
 WORKDIR /app
 COPY script.sh /app/script.sh

@@ -1,4 +1,4 @@
-#/usr/bin/env bash
+#!/usr/bin/env bash
 
 update_image() {
   docker pull ghcr.io/dadencukillia/miostream/backend:dev | grep -q "Downloaded newer image"
@@ -25,5 +25,5 @@ while [ true ]; do
     run_named &&
     echo "Restarted"
 
-  sleep 30
+  sleep 120
 done
